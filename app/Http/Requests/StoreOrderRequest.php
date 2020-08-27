@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Order;
 
 class StoreOrderRequest extends FormRequest
 {
@@ -23,11 +24,6 @@ class StoreOrderRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'customer_name' => 'required|string',
-            'customer_mobile' => 'required',
-            'customer_email' => 'required|email',
-            'product' => 'required',
-        ];
+        return Order::$rules;
     }
 }

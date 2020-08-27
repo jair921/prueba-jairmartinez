@@ -28,17 +28,5 @@ class OrderRequest extends FormRequest
             //
         ];
     }
-    
-    /**
-     * Return product send by GET
-     * @return mixed
-     */
-    public function product()
-    {
-        $product = false;
-        if(isset($this->product)){
-            $product = Product::find($this->product);
-        }
-        return $product;
-    }
+
 }

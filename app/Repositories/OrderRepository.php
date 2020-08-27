@@ -17,5 +17,11 @@ class OrderRepository extends BaseRepository
         return Order::class;
     }
 
+    public function attatchProduct($id, $data)
+    {
+        $order = $this->find($id);
+        $order->products()->attach($data['product']);
+        return $order;
+    }
 }
 

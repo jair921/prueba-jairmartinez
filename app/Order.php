@@ -13,4 +13,11 @@ class Order extends Model
     {
         return $this->belongsToMany('App\Product');
     }
+    
+     public static $rules = [
+            'customer_name' => 'required|string',
+            'customer_mobile' => 'required',
+            'customer_email' => 'required|email',
+            'product' => 'required',
+        ];
 }
