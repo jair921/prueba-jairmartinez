@@ -8,12 +8,8 @@ use Tests\TestCase;
 
 class IndexTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function testExample()
+     /** @test */
+    public function it_visit_page_of_index()
     {
         $response = $this->get('/');
 
