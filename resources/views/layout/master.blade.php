@@ -152,9 +152,7 @@
     
     <section class="featured spad">
         <div class="container">
-            <div>
-                
-            </div>
+            @yield('content')
         </div>
     </section>
     
