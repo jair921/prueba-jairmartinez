@@ -8,7 +8,7 @@
                 <div class="featured__item__pic set-bg" data-setbg="{{asset($product->image)}}">
                     <ul class="featured__item__pic__hover">
                         <li>
-                            <a href="#" title="">
+                            <a href="{{route('order.index')}}?product={{$product->id}}" title="">
                                 <i class="fa fa-shopping-cart" title=""></i>
                             </a>
                         </li>
