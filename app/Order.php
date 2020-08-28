@@ -19,5 +19,18 @@ class Order extends Model
             'customer_mobile' => 'required',
             'customer_email' => 'required|email',
             'product' => 'required',
-        ];
+    ];
+     
+    public function price()
+    {
+        
+        $price = 0;
+        
+        foreach($this->products as $product)
+        {
+            $price += $product->price;
+        }
+        
+        return $price;
+    }
 }
