@@ -14,6 +14,6 @@ class PaymentFactory
                 return $pay;
                 break;
         }
-        throw \Exception('Not found method payment');
+        throw new \Exception('Not found method payment');
     }
 }
