@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Order;
+use App\Status;
 
 class OrderRepository extends BaseRepository
 {
@@ -31,7 +32,7 @@ class OrderRepository extends BaseRepository
 
     public function status(Order &$order, $status)
     {
-        $order->status = $status;
+        $order->status = Status::$statusEquivalent[$status];
         $order->save();
     }
 }

@@ -21,4 +21,12 @@ class Status {
         'REJECTED' => 'Rechazado',
         'PENDING' => 'Pendiente',
     ];
+    
+    public static $statusEquivalent = [
+        'CREATED' => 'CREATED',
+        'APPROVED' => 'PAYED',
+        'PAYED' => 'PAYED',
+        'REJECTED' => 'REJECTED',
+        'PENDING' => 'PENDING',
+    ];
 }
