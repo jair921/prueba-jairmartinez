@@ -8,6 +8,7 @@ use App\Repositories\ProductRepository;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\OrderRequest;
 use App\Product;
+use App\Payments\PaymentFactory;
 
 class OrderController extends Controller
 {
@@ -31,11 +32,12 @@ class OrderController extends Controller
     public function create(StoreOrderRequest $request)
     {
         $order = $this->orderRepository->create($request->all());
-        $this->orderRepository->attatchProduct($order->id, $request->all());
+        $this->orderRepository->attatchProduct($order, $request->all());
         
         $payment = PaymentFactory::initialize('placetopay');
         
         $response =  $payment->startTransaction($order);
+
         if ($response->isSuccessful()) {
             $this->orderRepository->transactionData($order, $response->requestId(), $response->processUrl());
 
