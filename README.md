@@ -11,6 +11,12 @@ Enter the directory and update dependencies
 ```sh
 composer update
 ```
+
+Run key generate
+```sh
+php artisan key:generate --ansi
+```
+
 Configure connection data to the database in the .env file
 ```sh
 DB_CONNECTION=mysql
@@ -19,6 +25,11 @@ DB_PORT=3306
 DB_DATABASE=tienda
 DB_USERNAME=db
 DB_PASSWORD=secret
+```
+
+Run migrations
+```sh
+php artisan migrate
 ```
 
 Run seeders
