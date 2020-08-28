@@ -13,4 +13,11 @@ return [
     'place order' => 'Realizar pedido',
     'your order' => 'Tu Orden',
     'retry' => 'Reintentar',
+    'list orders' => 'Lista de ordenes',
+    'number order' => 'Orden #',
+    'date' => 'Fecha',
+    'status' => 'Estado',
+    'actions' => 'Acciones',
+    'no result' => 'Sin ordenes registradas',
+    'view' => 'Ver',
 ];

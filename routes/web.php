@@ -18,3 +18,4 @@ Route::get('/order', 'OrderController@index')->name('order.index');
 Route::post('/order', 'OrderController@create')->name('order.create');
 Route::get('/order/{id}', 'OrderController@show')->name('order.show');
 Route::get('/order/{id}/retry', 'OrderController@retry')->name('order.retry');
+Route::get('/orders', 'OrderController@list')->name('order.list');

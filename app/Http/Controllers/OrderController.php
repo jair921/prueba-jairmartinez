@@ -87,4 +87,11 @@ class OrderController extends Controller
             'alert-type' => 'warning'
         ]);
     }
+
+    public function list()
+    {
+        $orders = $this->orderRepository->paginate(10);
+
+        return view('orders.list', compact('orders'));
+    }
 }

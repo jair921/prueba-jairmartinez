@@ -58,18 +58,8 @@
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="{{route('index')}}">Home</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
-                <li><a href="#">Pages</a>
-                    <ul class="header__menu__dropdown">
-                        <li><a href="./shop-details.html">Shop Details</a></li>
-                        <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                        <li><a href="./checkout.html">Check Out</a></li>
-                        <li><a href="./blog-details.html">Blog Details</a></li>
-                    </ul>
-                </li>
-                <li><a href="./blog.html">Blog</a></li>
-                <li><a href="./contact.html">Contact</a></li>
+                <li class="active"><a href="{{route('index')}}">Inicio</a></li>
+                <li class="active"><a href="{{route('order.list')}}">{{__('global.list orders')}}</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -82,7 +72,7 @@
         <div class="humberger__menu__contact">
             <ul>
                 <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li>
+                <li></li>
             </ul>
         </div>
     </div>
@@ -130,7 +120,8 @@
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="{{route('index')}}">Home</a></li>
+                            <li class="active"><a href="{{route('index')}}">Inicio</a></li>
+                            <li class="active"><a href="{{route('order.list')}}">{{__('global.list orders')}}</a></li>
                         </ul>
                     </nav>
                 </div>
