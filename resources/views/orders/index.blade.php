@@ -63,6 +63,7 @@
 
                     <button type="submit" class="site-btn">{{__('global.place order')}}</button>
                     <input type="hidden" name="product" value="{{$product->id}}">
+                    <input type="hidden" name="method" value="placetopay">
                 </div>
             </div>
         </div>

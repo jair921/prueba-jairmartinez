@@ -17,11 +17,16 @@ class OrderRepository extends BaseRepository
         return Order::class;
     }
 
-    public function attatchProduct($id, $data)
+    public function attatchProduct(&$order, $data)
     {
-        $order = $this->find($id);
         $order->products()->attach($data['product']);
-        return $order;
+    }
+
+    public function transactionData(Order &$order, $tId, $tUrl)
+    {
+        $order->transaction_id = $tId;
+        $order->transaction_url = $tUrl;
+        $order->save();
     }
 }
 

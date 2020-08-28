@@ -24,6 +24,10 @@ class StoreOrderRequest extends FormRequest
      */
     public function rules()
     {
-        return Order::$rules;
+        $rules = Order::$rules;
+        
+        $rules['method'] = 'in:' . implode(',', config('payments.methods'));
+        
+        return $rules;
     }
 }
