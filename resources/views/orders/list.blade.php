@@ -13,7 +13,7 @@
             <th>{{__('global.actions')}}</th>
         </thead>
         <tbody>
-            @if($orders)
+            @if($orders && count($orders))
                 @foreach($orders as $order)
                 <tr>
                     <td>{{$order->id}}</td>
