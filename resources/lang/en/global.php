@@ -11,4 +11,5 @@ return [
     'subtotal' => 'Subtotal',
     'place order' => 'Place order',
     'your order' => 'Your Order',
+    'retry' => 'Retry',
 ];

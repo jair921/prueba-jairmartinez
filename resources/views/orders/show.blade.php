@@ -40,7 +40,12 @@
                         </ul>
                         <div class="checkout__order__subtotal">{{__('global.subtotal')}} <span>{{$product->price}}</span></div>
                         <div class="checkout__order__total">{{__('global.total')}} <span>{{$product->price}}</span></div>
-
+                        @if($order->status == \App\Status::$PENDING)
+                            <a class="site-btn" href="{{$order->transaction_url}}">{{__('global.retry')}}</a>
+                        @endif
+                        @if($order->status == \App\Status::$REJECTED)
+                            <a class="site-btn" href="{{route('order.retry', [$order->id])}}">{{__('global.retry')}}</a>
+                        @endif
                     </div>
                 </div>
             </div>

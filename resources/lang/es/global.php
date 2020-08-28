@@ -12,4 +12,5 @@ return [
     'subtotal' => 'Subtotal',
     'place order' => 'Realizar pedido',
     'your order' => 'Tu Orden',
+    'retry' => 'Reintentar',
 ];
