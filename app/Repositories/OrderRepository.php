@@ -28,5 +28,11 @@ class OrderRepository extends BaseRepository
         $order->transaction_url = $tUrl;
         $order->save();
     }
+
+    public function status(Order &$order, $status)
+    {
+        $order->status = $status;
+        $order->save();
+    }
 }
 

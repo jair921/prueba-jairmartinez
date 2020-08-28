@@ -49,4 +49,24 @@ class OrderController extends Controller
             'alert-type' => 'warning'
         ]);
     }
+    
+    public function show($id)
+    {
+
+        $order = $this->orderRepository->find($id);
+        $payment = PaymentFactory::initialize($order->method);
+        $response = $payment->query($order);
+
+        if ($response->isSuccessful()) {
+            $responseStatus = $response->status()->toArray();
+            $this->orderRepository->status($order, $responseStatus['status']);
+            $message = $responseStatus['message'];
+        } else {
+            $message = $response->status()->message();
+        }
+        
+        $product = $order->firstProduct();
+
+        return view('orders.show', compact('message', 'order', 'product'));
+    }    
 }

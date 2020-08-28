@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/order', 'OrderController@index')->name('order.index');
 Route::post('/order', 'OrderController@create')->name('order.create');
+Route::get('/order/{id}', 'OrderController@show')->name('order.show');

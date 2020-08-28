@@ -26,7 +26,7 @@ class StoreOrderRequest extends FormRequest
     {
         $rules = Order::$rules;
 
-        $rules['method'] = 'in:' . implode(',', config('payments.methods'));
+        $rules['method'] = 'required|in:' . implode(',', config('payments.methods'));
         
         return $rules;
     }
