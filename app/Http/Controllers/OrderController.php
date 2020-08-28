@@ -48,10 +48,5 @@ class OrderController extends Controller
             'message' => $response->status()->message(),
             'alert-type' => 'warning'
         ]);
-        
-        return redirect()->route('order.index')->with([
-            'message' => '',
-            'alert-type' => 'success'
-        ]);
     }
 }
