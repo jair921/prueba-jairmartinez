@@ -37,14 +37,12 @@ Run seeders
 php artisan db:seed
 ```
 
-Configure connection data for payment gateways (app/payments.php)
+Configure connection data for payment gateways in .env
 View [Placetopay](https://placetopay.github.io/web-checkout-api-docs/#webcheckout)
 ```sh
-'placetopay' => [
-        'url'=>'https://***placetopay.com/redirection/',
-        'login'=>'6dd**********',
-        'trankey'=>'024*****',
-    ]
+PLACETOPAY_URL=
+PLACETOPAY_LOGIN=
+PLACETOPAY_TRANKEY=
 ```
 
 ### Run tests (Optional)
