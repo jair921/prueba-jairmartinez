@@ -6,11 +6,10 @@ class PaymentFactory
 {
     public static function initialize($type)
     {
-        switch ($type)
-        {
+        switch ($type) {
             case 'placetopay':
                 $pay = new PlaceToPay();
-                $pay->setConfig(config('payments.'.$type));
+                $pay->setConfig(config('payments.' . $type));
                 return $pay;
                 break;
         }

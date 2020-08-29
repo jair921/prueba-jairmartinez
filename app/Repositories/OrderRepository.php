@@ -7,10 +7,8 @@ use App\Status;
 
 class OrderRepository extends BaseRepository
 {
-
     public function getFieldsSearchable()
     {
-
     }
 
     public function model()
@@ -36,4 +34,3 @@ class OrderRepository extends BaseRepository
         $order->save();
     }
 }
-

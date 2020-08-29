@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreOrderRequest;
+use App\Payments\PaymentFactory;
 use App\Repositories\OrderRepository;
 use App\Repositories\ProductRepository;
-use App\Http\Requests\StoreOrderRequest;
-use App\Http\Requests\OrderRequest;
-use App\Product;
-use App\Payments\PaymentFactory;
+use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-
     private $orderRepository;
     private $productRepository;
 
@@ -27,7 +24,7 @@ class OrderController extends Controller
         $product = $this->productRepository->find($request->product);
 
         return view('orders.index', compact('product'));
-     }
+    }
 
     public function create(StoreOrderRequest $request)
     {
@@ -36,7 +33,7 @@ class OrderController extends Controller
 
         $payment = PaymentFactory::initialize('placetopay');
 
-        $response =  $payment->startTransaction($order);
+        $response = $payment->startTransaction($order);
 
         if ($response->isSuccessful()) {
             $this->orderRepository->transactionData($order, $response->requestId(), $response->processUrl());
@@ -46,13 +43,12 @@ class OrderController extends Controller
 
         return redirect()->route('order.index')->with([
             'message' => $response->status()->message(),
-            'alert-type' => 'warning'
+            'alert-type' => 'warning',
         ]);
     }
 
     public function show($id)
     {
-
         $order = $this->orderRepository->find($id);
         $payment = PaymentFactory::initialize($order->method);
         $response = $payment->query($order);
@@ -72,10 +68,9 @@ class OrderController extends Controller
 
     public function retry($id)
     {
-
         $order = $this->orderRepository->find($id);
         $payment = PaymentFactory::initialize($order->method);
-        $response =  $payment->startTransaction($order);
+        $response = $payment->startTransaction($order);
 
         if ($response->isSuccessful()) {
             $this->orderRepository->transactionData($order, $response->requestId(), $response->processUrl());
@@ -84,7 +79,7 @@ class OrderController extends Controller
 
         return redirect()->route('order.index')->with([
             'message' => $response->status()->message(),
-            'alert-type' => 'warning'
+            'alert-type' => 'warning',
         ]);
     }
 

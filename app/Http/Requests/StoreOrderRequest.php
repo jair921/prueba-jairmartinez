@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 use App\Order;
+use Illuminate\Foundation\Http\FormRequest;
 
 class StoreOrderRequest extends FormRequest
 {
@@ -27,7 +27,7 @@ class StoreOrderRequest extends FormRequest
         $rules = Order::$rules;
 
         $rules['method'] = 'required|in:' . implode(',', config('payments.methods'));
-        
+
         return $rules;
     }
 }

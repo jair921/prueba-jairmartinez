@@ -8,5 +8,5 @@ return [
         'url'=>'',
         'login'=>'',
         'trankey'=>'',
-    ]
+    ],
 ];

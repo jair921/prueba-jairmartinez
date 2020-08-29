@@ -2,22 +2,18 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Tests\TestCase;
 use DB;
+use Tests\TestCase;
 
 class OrderTest extends TestCase
 {
-
-     /** @test */
+    /** @test */
     public function it_visit_page_of_order()
     {
         $response = $this->get('/order?product=1');
 
         $response->assertStatus(200);
     }
-
 
     /** @test */
     public function it_display_404_page_of_order()
@@ -28,7 +24,7 @@ class OrderTest extends TestCase
     }
 
     /** @test */
-    function it_creates_a_new_order()
+    public function it_creates_a_new_order()
     {
         $this->post('/order', [
             'customer_name' => 'Jair',
@@ -41,19 +37,17 @@ class OrderTest extends TestCase
         return DB::table('orders')->orderBy('id', 'desc')->first()->id;
     }
 
-
-     /**
+    /**
       @test
       @depends it_creates_a_new_order */
     public function it_load_show_order($id)
     {
-        $response = $this->get('/order/'.$id);
+        $response = $this->get('/order/' . $id);
 
         $response->assertStatus(200);
 
         DB::table('orders')->where('id', $id)->delete();
     }
-
 
     /** @test */
     public function it_visit_list_orders()
@@ -62,5 +56,4 @@ class OrderTest extends TestCase
 
         $response->assertStatus(200);
     }
-
 }

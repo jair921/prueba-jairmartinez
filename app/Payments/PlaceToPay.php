@@ -4,20 +4,19 @@ namespace App\Payments;
 
 class PlaceToPay implements PaymentInterface
 {
-
     private $config;
 
     private function connection()
     {
-      $config = $this->getConfig();
-      $placetopay = new \Dnetix\Redirection\PlacetoPay([
+        $config = $this->getConfig();
+        $placetopay = new \Dnetix\Redirection\PlacetoPay([
             'login' => $config['login'],
             'tranKey' => $config['trankey'],
             'url' => $config['url'],
             'rest' => [
                 'timeout' => 45,
                 'connect_timeout' => 30,
-            ]
+            ],
         ]);
 
         return $placetopay;
@@ -25,14 +24,13 @@ class PlaceToPay implements PaymentInterface
 
     public function startTransaction(\App\Order $order)
     {
-
         $placetopay = $this->connection();
 
         $reference = $order->id;
         $requestPlace = [
             'payment' => [
                 'reference' => $reference,
-                'description' => 'Payment order '.$reference,
+                'description' => 'Payment order ' . $reference,
                 'amount' => [
                     'currency' => 'COP',
                     'total' => $order->price(),
@@ -54,13 +52,13 @@ class PlaceToPay implements PaymentInterface
         return $placetopay->query($order->transaction_id);
     }
 
-    public function setConfig(array $config) {
+    public function setConfig(array $config)
+    {
         $this->config = $config;
     }
 
-    public function getConfig() {
+    public function getConfig()
+    {
         return $this->config;
     }
-
 }
-
